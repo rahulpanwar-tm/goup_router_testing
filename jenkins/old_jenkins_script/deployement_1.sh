@@ -150,7 +150,6 @@ for i in "${Array3[@]}"
 do
    #echo  "mysql -udeveloper -padmin@123 -c -h 192.168.1.122 -Bse $i" 
    mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -e "source $jenkins_path/$i;"
-   verisoning_table=($(mysql -u$PRO_USERID --port $PRO_PORT  -p$PRO_PASSWORD -c -h $PROD_IPADDRESS -Bse "SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='$versioning_table' and TABLE_SCHEMA='$versioning_db'  ;"))
   
    if [ "$verisoning_table" -le 0 ]
 then
