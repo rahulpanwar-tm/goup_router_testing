@@ -62,7 +62,7 @@ mysqldump -h ${MYSQL_HOST} \
    -P ${MYSQL_PORT} \
    -u ${MYSQL_USER} \
    -p${MYSQL_PASSWORD} \
-  --add-drop-database --databases ${DATABASE_NAME} | gzip > ${DB_BACKUP_PATH}/${TODAY}/${DATABASE_NAME}-${TODAY}.sql.gz
+  --add-drop-database --databases ${DATABASE_NAME} -- routines=true | gzip > ${DB_BACKUP_PATH}/${TODAY}/${DATABASE_NAME}-${TODAY}.sql.gz
  
 if [ $? -eq 0 ]; then
   echo "Database backup successfully completed"
